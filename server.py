@@ -14,7 +14,7 @@ app.secret_key = "ABC"
 # YOUR ROUTES GO HERE
 @app.route('/')
 def go_home():
-	"""Goes to the homepage."""
+	"""Goes to the homepage.  Homepage links user to application."""
 
 	# Homepage welcomes user and has a link to the application
 	return render_template("index.html")
@@ -35,7 +35,7 @@ def process_application():
 	last_name = request.form.get("lastname")
 	salary = request.form.get("salary")
 	salary = "${:,.2f}".format(float(salary))
-	job = request.for.get("jobapplyingfor")
+	job = request.form.get("jobapplyingfor")
 	
 	return render_template("application-response.html", first_name=first_name,
 		last_name=last_name, salary=salary, job=job)
