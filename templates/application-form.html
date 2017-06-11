@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Application form{% endblock %}
+
+{% block content %}
+	<h1>Application Form</h1>
+	<p>Please fill out the following form to submit your preferences
+		for your application.
+	</p>
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-offset-4 col-xs-4"> 
+				<form action="/application-success" method="POST">
+					First Name: <input class="yellow" type="text" name="firstname"><br>
+					Last Name: <input id="lastname" class="yellow" type="text" name="lastname"><br>
+					Salary Requirements as a Number: <input class="yellow" type="text" name="salary"><br>
+					Job Applying For: 
+				<!-- I am not sure if this is the way to use the jinja for-loop to create job-selection input. -->
+						<select name="jobapplyingfor">
+							{% for name, job in jobs.items() %}
+								<option value={{ name }}>{{ job }}</option>
+							{% endfor %}
+						</select><br>
+					<input class="yellow" type="submit">
+				</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}
