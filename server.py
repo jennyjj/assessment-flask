@@ -23,11 +23,11 @@ def go_home():
 def get_application():
 	"""Gets info from applicant."""
 	
-	jobs = {"softwareengineer": "Software Engineer", "qaengineer": "QA Engineer", "productmanager": "Product Manager"}
+	jobs = ["Software Engineer", "QA Engineer", "Product Manager"]
 
 	return render_template("application-form.html", jobs=jobs)
 
-@app.route('application-success')
+@app.route('/application-success', methods=["POST"])
 def process_application():
 	"""Processes application."""
 

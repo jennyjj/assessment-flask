@@ -16,8 +16,8 @@
 					Job Applying For: 
 				<!-- I am not sure if this is the way to use the jinja for-loop to create job-selection input. -->
 						<select name="jobapplyingfor">
-							{% for name, job in jobs.items() %}
-								<option value={{ name }}>{{ job }}</option>
+							{% for job in jobs %}
+								<option value="{{ job }}">{{ job }}</option>
 							{% endfor %}
 						</select><br>
 					<input class="yellow" type="submit">
